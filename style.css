@@ -1,0 +1,243 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 105vh;
+    background-color: #ffebf0;
+    text-align: center;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.msg-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: 7.5px;
+}
+
+h1 {
+    color: #fa83ab;
+}
+
+#intro-tittle{
+    color: white
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #fa83ab;
+    transition: 0.5s;
+}        
+
+.detailed-message{
+    font-family: "Roboto Slab";
+}
+
+#intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hotpink;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+#intro.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.full-container {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease-out forwards;
+    max-width: 100vw;
+    box-sizing: border-box;
+    padding: 10px;
+    overflow: hidden;
+    position: absolute;
+    /* display: block;
+    opacity: 1;
+    padding: 2rem; */
+}
+
+/* .img-container{
+    width: 100%;
+    height: 300px; 
+    background-image: url('img/1.jpeg');
+    background-size: cover; 
+    background-position: center; 
+}        */
+
+.img-row-container{
+    display: flex;                   /* Aligns the items horizontally */
+    justify-content: center;         /* Centers the items horizontally */
+    align-items: center;             /* Aligns the items vertically */
+    gap: 7.5px;                       /* Adds gap between the images */
+    width: 100%;                       /* Limits the width of the container */
+    margin: 0 auto;     
+}
+
+.img-container {
+    width: 50%;                       /* Adjust width to make images smaller */
+    max-width: 200px;                 /* Optional: Adds a maximum width for responsiveness */
+    height: 0;                        /* Set the height to 0 to use padding trick */
+    padding-bottom: 30%;              /* Aspect ratio trick for square (30% = 1:1 aspect ratio) */
+    position: relative;               /* For proper positioning */
+    overflow: hidden;    
+}
+
+.img-container img {
+    position: absolute;               /* Positions image relative to its container */
+    top: 50%;                         /* Centers the image vertically */
+    left: 50%;                        /* Centers the image horizontally */
+    transform: translate(-50%, -50%); /* Offsets the image by 50% to keep it centered */
+    width: 100%;                      /* Ensures images fill their container */
+    height: 100%;                     /* Ensures images fill their container */
+    object-fit: cover;
+    border-radius: 7px; 
+}
+
+.question-container{
+    display: none;
+    position: relative;
+    /* top: 50px; */
+    left: 0;
+    width: 100%;
+    height: 0;                   /* Start with zero height */
+    overflow: hidden;            /* Hide the content during transition */
+    transition: height 0.5s ease, opacity 0.5s ease, border 0.5s ease, border-radius 0.5s ease; /* Slide and fade effects */
+    opacity: 0;                  /* Start with invisible */
+    /* border: 3px #ff4081;
+    border-radius: 5px; */
+}
+
+.hidden {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none; /* Prevents clicking while invisible */
+}
+
+.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease;
+}
+
+#modal.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    max-width: 90%;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    position: relative;
+  }
+  
+/* Close button style */
+#closeModal {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -10px;
+    font-size: 20px;
+    color: #ff4081;
+    animation: float 4s linear forwards;
+
+    left: calc(50% - 10px); /* Keeps them inside */
+    max-width: 100vw;
+}
+
+@media (max-width: 768px) {  /* Tablets & Small Devices */
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {  /* Most Phones */
+    .container {
+        width: 80%;
+        padding: 10px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    button {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+}   
