@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     yesBtn.addEventListener("click", () => {
         modalContent.innerHTML = `
             <h2>Gracias por existir 💖</h2>
+            <img src="img/photos.gif" alt="ourphotos" style="width:100%; max-width:300px;">
             <p>La vida se ha vuelto más bonita teniéndote a mi lado, espero ser la persona
             con la que querrás estar cada día, yo sé que sos vos con quién quiero estar,
             Andrea Dayanara &#128151.<br>
